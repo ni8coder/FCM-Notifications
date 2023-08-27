@@ -19,12 +19,23 @@ app.get("/", (req, res) => {
     },
     notification: {
       title: "Success",
+      body: "This is notification body",
     },
     android: {
       ttl: 0,
-      priority: "high",
+      priority: "normal", //"high",
     },
-    token,
+    apns: {
+      payload: {
+        aps: {
+          // "mutable-content": 1,
+        },
+      },
+      fcm_options: {
+        // image: 'https://foo.bar.pizza-monster.png'
+      },
+    },
+    to: token,
   };
 
   //send message to the device corresponding to the provided registration token
