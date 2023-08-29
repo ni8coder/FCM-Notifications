@@ -9,6 +9,8 @@ admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
 
+let version = 1;
+
 app.get("/", (req, res) => {
   const token = req.query.token;
 
@@ -16,6 +18,7 @@ app.get("/", (req, res) => {
     data: {
       score: "850",
       time: "2:45",
+      version: version++,
     },
     notification: {
       title: "Success",
@@ -23,7 +26,7 @@ app.get("/", (req, res) => {
     },
     android: {
       ttl: 0,
-      priority: "normal", //"high",
+      priority: "high", //"normal",
     },
     apns: {
       payload: {
@@ -35,7 +38,7 @@ app.get("/", (req, res) => {
         // image: 'https://foo.bar.pizza-monster.png'
       },
     },
-    to: token,
+    token: token,
   };
 
   //send message to the device corresponding to the provided registration token
