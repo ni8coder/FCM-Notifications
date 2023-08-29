@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
     data: {
       score: "850",
       time: "2:45",
-      version: version++,
+      // version: version++,
     },
     notification: {
       title: "Success",
@@ -55,4 +55,4 @@ app.get("/", (req, res) => {
     });
 });
 
-app.listen(3000);
+app.listen(3001);
