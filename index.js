@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 
   const message = {
     data: {
-      score: "850",
+      score: "851",
       time: "2:45",
       // version: version++,
     },
